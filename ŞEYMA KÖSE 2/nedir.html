@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nedir?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:'Times New Roman', Times, serif;
+            background-color: #d7dac8;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #a1bb7862;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header .logo p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        nav ul li a.active {
+            color: #ff5e57;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 100px); 
+        }
+
+        .sidebar {
+            background-color: #d7dac8;
+            width: 20%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .sidebar button {
+            background-color: transparent;
+            border: none;
+            color: rgb(190, 52, 160);
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: left;
+            transition: background-color 0.3s ease;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .sidebar button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .content {
+            position: relative;
+            background-color: #d8c7d6;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        .content video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .content h1, .content p {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .content h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 20px;
+            max-width: 600px;
+        }
+
+        .content img {
+            max-width: 80%; 
+            height: auto;
+            margin: 20px auto; 
+            display: block;
+        }
+
+        .result-box {
+            background-color: #ffffffcc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .result-box select, .result-box button {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .result-box button {
+            background-color: #a1bb78;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .result-box button:hover {
+            background-color: #8aa164;
+        }
+    </style>
+</head>
+<body>
+
+
+<header>
+    <div class="logo">
+        <h1 id="logoTitle">Şeyma Köse</h1>
+        <p id="logoSubtitle">Güzellik Uzmanı</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="anasayfa.html">Anasayfa</a></li>
+            <li><a href="nedir.html" class="active">Nedir?</a></li>
+            <li><a href="makyajstili.html">Makyaj Stili</a></li>
+            <li><a href="tıkla.html">TIKLA</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+   
+    <div class="sidebar">
+        <button onclick="showContent('nedir')">Cilt Alt Tonu Nedir?</button>
+        <button onclick="showContent('nasil-bulunur')">Cilt Alt Tonu Nasıl Bulunur?</button>
+        <button onclick="showContent('sonuc')">Sonuç</button>
+    </div>
+
+    
+    <div class="content" id="content">
+        <p>BİLGİLENMEK İÇİN SOLDAKİ İÇERİK YÖNETİCİ BÖLÜMÜ KULLANIN</p>
+        <video autoplay muted loop>
+            <source src="nedir3.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<script>
+    function showContent(page) {
+        const content = document.getElementById('content');
+        if (page === 'nedir') {
+            content.innerHTML = `
+                <h1>Cilt Alt Tonu Nedir?</h1>
+                <p>Herkes farklı cilt renklerine sahiptir. Kiminin ten rengi çok beyazken kiminin neredeyse siyaha yakın bir rengi vardır. Tüm bu renk farklılıklarının yanı sıra asıl önemli olan cilt alt tonunun rengidir. Giydiğiniz kıyafetin renginden makyajınızın renklerine kadar elde edilen uyumun başlıca unsuru cilt alt tonudur. Size hangi renklerin yakıştığı, hangi tonlarda makyajın daha doğal durduğunu cilt alt tonunuz belirler. Soğuk, sıcak ve nötr olarak 3’e ayrılan cilt alt tonu, kişinin esmerliğine veya sarışınlığına bağlı olarak belirlenmez. Yeni bir kıyafet alırken, saçınızı boyatırken veya yeni bir ruj satın alırken cilt alt tonunuzu göz önünde bulundurmanız oldukça önemlidir. Bu sebeple hazırladığımız içeriğimiz, cilt alt tonun ne olduğunu, neler olduğunu ve nasıl bulunduğunu içeriyor. Hazırsanız cilt alt tonunuzu birlikte bulalım.</p>
+                <img src="resim2.jpg" alt="Cilt Alt Tonu Nedir?">
+                <p>Cilt alt tonu, cildin altındaki pigmentlerin renk skalasını belirleyen bir terimdir. Cilt alt tonu, cilt renginden farklıdır ve sıcak, soğuk ve nötr tonlar şeklinde sınıflandırılır. Bu tonlar, cilt bakımı ve makyaj ürünleri seçiminde önemli bir rol oynar. Doğru cilt alt tonu belirlendiğinde, cilt bakımı ve makyaj uygulamaları daha doğal ve dengeli bir görünüm kazanır. Yanlış cilt alt tonu seçimi ise cildin soluk veya cansız görünmesine neden olabilir. Bu nedenle, doğru cilt alt tonunu belirlemek, son derece önemlidir.</p>
+            `;
+        } else if (page === 'nasil-bulunur') {
+            content.innerHTML = `
+                <h1>Cilt Alt Tonu Nasıl Bulunur?</h1>
+                <p>Doğru cilt alt tonunun belirlenmesi, cilt bakımı ve makyaj uygulamalarının daha doğal ve dengeli görünmesini sağlar. Cilt alt tonunuzu belirlemek için aşağıda yer alan yöntemlerden birini tercih edebilirsiniz.</p>
+                <h1>Damar Testi ile Cilt Alt Tonu Belirleme</h1>
+                <p>Güneş ışığında denenmesi gereken bir testtir. Bu test ile güneş ışığında bileklerinizdeki veya şakak bölgenizdeki damarları inceleyiniz. Damarlarınız yeşil renkte görünüyorsa sıcak cilt alt tonuna sahipsiniz demektir. Ancak damarlarınız mavi renkte görünüyorsa soğuk cilt alt tonuna sahipsiniz.
+                İnceleme sonucunda damarlarınızın mavi mi yoksa yeşil mi olduğuna karar veremiyorsanız muhtemelen nötr cilt alt tonuna sahipsinizdir. Nötr cilt alt tonunda damarların bir kısmı mavi gibi görünürken diğer kısmı yeşil gibi görünür.</p>
+                <img src="nasilbulunur.jpg" alt="Cilt Alt Tonu Nasıl Bulunur?" style="width: 70%; margin: 0 auto; display: block;">
+                <h1>Gümüş - Altın Testi ile Cilt Alt Tonu Belirleme</h1>
+                <p>Damar testine kıyasla daha kolay olan bir diğer test gümüş-altın testidir. Bu testi yapmak için birer adet gümüş ve altın takı bulundurmanız yeterli olacaktır. Altın sıcak cilt alt tonuna sahip kişilere yakışırken gümüş ise soğuk cilt alt tonuna sahip kişilere yakışır. Bu test sayesinde sıcak mı soğuk mu cilt alt tonuna sahip olduğunuzu anlamanız mümkündür.</p>
+            `;
+        } else if (page === 'sonuc') {
+            content.innerHTML = `
+                <h1>Sonuç</h1>
+                <div class="result-box">
+                    <p>Cilt Alt Tonunuz Nedir?</p>
+                    <select id="ciltAltTonu">
+                        <option value="soguk">Soğuk</option>
+                        <option value="sicak">Sıcak</option>
+                        <option value="notr">Nötr</option>
+                    </select>
+                    <button onclick="gosterCiltAltTonu()">Gönder</button>
+                </div>
+            `;
+        }
+    }
+
+    function gosterCiltAltTonu() {
+        const ciltAltTonu = document.getElementById("ciltAltTonu").value;
+        let mesaj = "";
+
+        if (ciltAltTonu === "soguk") {
+            mesaj = "Soğuk cilt alt tonuna sahipsiniz. Gümüş takılar ve soğuk renkler size çok yakışır!";
+        } else if (ciltAltTonu === "sicak") {
+            mesaj = "Sıcak cilt alt tonuna sahipsiniz. Altın takılar ve sıcak renkler size daha uyumludur!";
+        } else if (ciltAltTonu === "notr") {
+            mesaj = "Nötr cilt alt tonuna sahipsiniz. Hem soğuk hem de sıcak renkleri rahatlıkla kullanabilirsiniz!";
+        }
+
+        window.alert(mesaj);
+    }
+</script>
+
+</body>
+</html>

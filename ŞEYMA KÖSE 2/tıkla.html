@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIKLA Sayfası</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #d7dac8;
+            color: #333;
+            position: relative;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #a1bb7862;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header .logo p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+            padding: 20px;
+            position: relative;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2; /* Kutu üstte olsun */
+        }
+
+        .form-container input, .form-container select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            background-color: #a1bb78;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #8aa164;
+        }
+
+        .message-box {
+            background-color: #ffffffcc;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-box p {
+            margin-bottom: 10px;
+        }
+
+        /* Animasyonlar için stil */
+        .balloon, .ribbon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ff5e57;
+            animation: float 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .ribbon {
+            width: 60px;
+            height: 20px;
+            background-color: #a1bb78;
+            border-radius: 10px;
+        }
+
+        .balloon:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .balloon:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            animation-delay: 3s;
+        }
+
+        .ribbon:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .ribbon:nth-child(6) {
+            animation-delay: 2s;
+        }
+
+        .ribbon:nth-child(7) {
+            animation-delay: 3s;
+        }
+
+        /* Balonların ve kurdelerin yüzer gibi hareket etmesi için animasyon */
+        @keyframes float {
+            0% {
+                transform: translateY(100px) translateX(0);
+            }
+            50% {
+                transform: translateY(-50px) translateX(100px);
+            }
+            100% {
+                transform: translateY(100px) translateX(-100px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1 id="logoTitle">Şeyma Köse</h1>
+        <p id="logoSubtitle">Güzellik Uzmanı</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="anasayfa.html">Anasayfa</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container" id="container">
+    <div class="form-container" id="formContainer">
+        <h2>Kullanıcı Bilgileri</h2>
+        <input type="text" id="name" placeholder="İsim">
+        <input type="text" id="surname" placeholder="Soyisim">
+        <select id="skinTone">
+            <option value="soguk">Soğuk</option>
+            <option value="sicak">Sıcak</option>
+            <option value="notr">Nötr</option>
+        </select>
+        <input type="text" id="makeupProduct" placeholder="Sevdiğiniz Makyaj Ürünü">
+        <button onclick="showSuggestions()">Gönder</button>
+    </div>
+
+    <div class="message-box" id="messageBox">
+        <p>Önerileriniz:</p>
+        <div id="suggestions"></div>
+    </div>
+</div>
+
+<script>
+    function showSuggestions() {
+        const name = document.getElementById("name").value;
+        const surname = document.getElementById("surname").value;
+        const skinTone = document.getElementById("skinTone").value;
+        const makeupProduct = document.getElementById("makeupProduct").value;
+
+        let suggestionMessage = "";
+        if (skinTone === "soguk") {
+            suggestionMessage = `${name} ${surname} Hanım, soğuk cilt alt tonuna sahipseniz, size önerim: 
+                Pastel markasının 131 nolu highlighter'ı ve Wet n Wild markasının 129 numaralı fondöteni. 
+                Hediyemiz ise en sevdiğiniz makyaj ürünü olan ruj!`;
+        } else if (skinTone === "sicak") {
+            suggestionMessage = `${name} ${surname} Hanım, sıcak cilt alt tonuna sahipseniz, size önerim: 
+                Maybelline markasının 234 numaralı allığı ve L'Oréal markasının 108 numaralı rujunu kullanabilirsiniz.`;
+        } else {
+            suggestionMessage = `${name} ${surname} Hanım, nötr cilt alt tonuna sahipseniz, size her iki ton da uyacaktır. 
+                Önerim: Her iki markadan da ürünler deneyebilirsiniz.`;
+        }
+
+        // Show message box with suggestion
+        document.getElementById("formContainer").style.display = "none";
+        document.getElementById("messageBox").style.display = "block";
+        document.getElementById("suggestions").innerHTML = suggestionMessage;
+
+        // Trigger the animation for balloons and ribbons
+        showDecorations();
+    }
+
+    function showDecorations() {
+        // Create more balloons and ribbons
+        for (let i = 0; i < 5; i++) {
+            createBalloon();
+            createRibbon();
+        }
+    }
+
+    function createBalloon() {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        document.body.appendChild(balloon);
+
+        const xPos = Math.random() * window.innerWidth;
+        const yPos = Math.random() * window.innerHeight;
+        balloon.style.left = `${xPos}px`;
+        balloon.style.top = `${yPos}px`;
+    }
+
+    function createRibbon() {
+        const ribbon = document.createElement("div");
+        ribbon.classList.add("ribbon");
+        document.body.appendChild(ribbon);
+
+        const xPos = Math.random() * window.innerWidth;
+        const yPos = Math.random() * window.innerHeight;
+        ribbon.style.left = `${xPos}px`;
+        ribbon.style.top = `${yPos}px`;
+    }
+</script>
+
+</body>
+</html>

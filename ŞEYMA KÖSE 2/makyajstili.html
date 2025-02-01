@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makyaj Stili</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #d7dac8;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #a1bb7862;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header .logo p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        nav ul li a.active {
+            color: #ff5e57;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .main-content {
+            width: 70%;
+        }
+
+        .main-content .item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .main-content .item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .main-content .item p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .sidebar {
+            background-color: #e3c4dbad;
+            width: calc(300px - 30px); /* Genişlik navbarda belirtilen ölçüye göre ayarlandı */
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .sidebar ul li:hover {
+            background-color: #f0e5d8; /* Hover sırasında arka plan rengi */
+            cursor: pointer; /* Fare ikonu değişimi */
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1 id="logoTitle">Şeyma Köse</h1>
+        <p id="logoSubtitle">Güzellik Uzmanı</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="anasayfa.html">Anasayfa</a></li>
+            <li><a href="nedir.html">Nedir?</a></li>
+            <li><a href="makyajstili.html" class="active">Makyaj Stili</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="main-content">
+        <div class="item">
+            <img src="makyaj1.jpg" alt="Makyaj Örneği 1">
+            <p>
+                Soğuk cilt alt tonuna sahip kişilerin cilt altındaki pigmentleri pembedir. Bu kişilere makyajda mavi, lacivert, kobalt mavi, mor, mürdüm, bordo, lila, yeşil, gri, gümüş ve pembenin tüm tonları yakışır. <br>
+                Fondöten: Genel olarak soğuk alt tona sahip kişiler alt tonunda pembe tona sahip fondötenler tercih etmelidirler. Zaten tüm fondötenlerin renk açıklamalarında sarı mı yoksa pembe mi olduğu yazmaktadır. NARS Light Reflecting Fondöten gibi fondötenlerdeki çeşitlilik size aradığınız tonu verir. <br>
+                
+                Allık: Mürdüm, lila, pembe ve bu tonlardaki her allık ideal olur. Nars’ın pembe tonlarındaki açıklı koyulu allıkları Angelika, Gaiety, Mata Hari, Desire sizin için idealdir.</p>
+        </div>
+        <div class="item">
+            <img src="makyaj2.jpg" alt="Makyaj Örneği 2">
+            <p>Far: Pembe ve gül kurusu tonları, morlar, maviler, lacivert, siyah, gri, gümüş, zümrüt yeşili renkleri size en çok yakışan renklerdir. Nars Hardwired Eyeshadow ( Eartshine-Parlak lila pembe) ve Lysithea (gümüş gri)  farlara göz atmanızı öneririz. <br>
+
+                Ruj: Pembenin her tonunda ruj soğuk cilt alt tonlulara yakışır. Ruj sayfamıza mutlaka göz atın! Ayrıca mavi tabanlı kırmızı rujlar da yakışır. Nars Cruella gibi...</p>
+        </div>
+        <div class="item">
+            <img src="makyaj3.jpg" alt="Makyaj Örneği 3">
+            <p>Sıcak alt tonuna sahip kişilerin cilt altındaki pigmentleri sarıdır. Bu yüzden sarı alt tonlu cilt olarak da tanımlanmaktadır. Bu tip kişilere mercan, şeftali, kahverengi, kızıl kahve, sütlü kahve, toprak ve toprak tonları (küllü hariç), bakır, altın, mercan, somon, kayısı, fıstık yeşili, kiremit tonları çok yakışır. <br> 
+
+                Fondöten: Pembe alt tona sahip fondötenlerden kesinlikle kaçının! Bronz, bej, buğday, amber, bal rengi ve krem rengi tonlarında fondötenlerden size en uygun olanını seçebilirsiniz. Sarı veya kırmızı alt tonlu fondötenlere bakmalısınız. </p>
+        </div>
+        <div class="item">
+            <img src="makyaj4.jpg" alt="Makyaj Örneği 4">
+            <p>Allık: Bronz, turuncu ve şeftali tonlu allıklar sizin için idealdir. Soğuk pembelerden uzak durun. Nars Taj Mahal (kiremit mercan), Exhibit A (kırmızı) size mükemmel uyar. <br>
+
+                Ruj: Şeftali tonlarında rujlar,nude renkler ve vişne tonları kullanabilirsiniz. Örneğin, Nars Audacious Lana (mercan) ve Geraldine (turuncu), Nars Sheer Lipstick (pembe mercan)'ı deneyebilirsiniz. <br>
+                
+                Far: Işıltılı ve sıcak tonlardaki farları tercih edebilirsiniz. Altın rengi, bakır kızılı, toprak rengi, bej rengi, kahve tonları, kayısı tonları ve zeytin yeşili farlar kullanılabilir. Örneğin, Nars Single Eyeshadow</p>
+        </div>
+        <div class="item">
+            <img src="makyaj5.jpg" alt="Makyaj Örneği 5">
+            <p>Nötr alt tonlular makyaj konusunda en özgür olanlar. Seçenek açısından da en çok seçenek nötr alt tonlu olan kişiler için var. <br>
+
+                Nötr alt tonuna sahip kişiler hem sıcak hem soğuk alt tonlu olarak sayılabilir. Cilt alt tonunuzu tespit etmek için güneşe çıkın ve bileğinizdeki damarlara bakın. Eğer damarlarınız hem yeşil hem de mavi renkteyse nötr alt tonlu cilde sahipsiniz diyebiliriz.</p>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Kategoriler</h2>
+        <ul>
+            <li><strong>Makyaj</strong></li>
+            <li>Göz Makyajı</li>
+            <li>Ten Makyajı</li>
+            <li>Dudak Makyajı</li>
+            <li>Suya Dayanıklı Makyaj</li>
+            <li><strong>Cilt Bakımı</strong></li>
+            <li>Kışa Uygun Cilt Bakımı</li>
+            <li>Yaza Uygun Cilt Bakımı</li>
+            <li>Cilt Lekeleri</li>
+            <li>İnce Çizgi</li>
+            <li>Kırışıklık</li>
+        </ul>
+    </div>
+</div>
+<script>
+    // Sayfa yüklendiğinde resimlere animasyon ekleme
+    window.onload = function() {
+        const resimler = document.querySelectorAll(".main-content .item img");
+        resimler.forEach((resim, index) => {
+            setTimeout(() => {
+                resim.style.transition = "transform 0.5s";
+                resim.style.transform = "scale(1.2)";
+                setTimeout(() => {
+                    resim.style.transform = "scale(1)";
+                }, 500);
+            }, index * 200); // Resimler sırasıyla animasyon yapar
+        });
+    };
+
+    // Fareyle liste öğelerinin üzerine geldiğinde arka plan rengi değiştirme
+    const kategoriListesi = document.querySelectorAll(".sidebar ul li");
+    kategoriListesi.forEach(function(li) {
+        li.addEventListener("mouseover", function() {
+            li.style.backgroundColor = "#f0e5d8"; // Fareyle üzerine gelindiğinde açık kahverengi
+        });
+        li.addEventListener("mouseout", function() {
+            li.style.backgroundColor = "transparent"; // Fare ayrıldığında varsayılan arka plan
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
